@@ -1,0 +1,1908 @@
+{
+  "data": {
+    "spaces": [
+      {
+        "id": "cabindao.eth",
+        "name": "Cabin",
+        "about": "",
+        "network": "1",
+        "symbol": "₡ABIN",
+        "admins": [
+          "0x522c6b0aa5a14e1771aab5646247349ffa9e5111",
+          "0x8dca852d10c3cfccb88584281ec1ef2d335253fd",
+          "0xbec26ffa12c90217943d1b2958f60a821ae6e549",
+          "0x3dedb545e9b89f63fa71ab75497735d802c9d26f"
+        ],
+        "members": [],
+        "strategies": [
+          {
+            "name": "erc20-balance-of-delegation",
+            "params": {
+              "symbol": "CABIN",
+              "address": "0x1934e252f840aa98dfce2b6205b3e45c41aef830",
+              "decimals": 18,
+              "delegationSpace": "cabindao.eth"
+            }
+          },
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "CABIN",
+              "address": "0x1934e252f840aa98dfce2b6205b3e45c41aef830",
+              "decimals": 18
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 1000,
+          "onlyMembers": true
+        },
+        "plugins": {}
+      },
+      {
+        "id": "club.eth",
+        "name": "Seed Club",
+        "about": "Build something people want to be a part of.",
+        "network": "1",
+        "symbol": "CLUB",
+        "admins": [
+          "0x42dfaf5266ad40ab4533f9806f5cc1df4c1eb363",
+          "0x0e11de3e815491b1383d2b9c4f99095c20b5bd90",
+          "0x226CF3cAA4C1c8e662c7C272B45f5D17C58F0013"
+        ],
+        "members": [
+          "0x42DFAf5266Ad40AB4533F9806F5CC1DF4C1eB363",
+          "0x08d3758666cD20931bC2eC3E2c4A4A9F4a96e02A"
+        ],
+        "strategies": [
+          {
+            "name": "reverse-voting-escrow",
+            "params": {
+              "club": "0xF76d80200226AC250665139B9E435617e4Ba55F9",
+              "symbol": "RVE",
+              "vesting": "0xD46f00d9F1f6d2e65D9572F9ce283ba925FE591a"
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 500,
+          "onlyMembers": false
+        },
+        "plugins": {}
+      },
+      {
+        "id": "gitcoindao.eth",
+        "name": "Gitcoin",
+        "about": "Fund, build and protect what matters.  From products to protocols, our tools empower community-led funding and trustworthy digital experiences.",
+        "network": "1",
+        "symbol": "GTC",
+        "admins": [
+          "0xc2e2b715d9e302947ec7e312fd2384b5a1296099",
+          "0x393bc37ea5493233d2bdc68fd59dd97ee01b18cf",
+          "0xef8305e140ac520225daf050e2f71d5fbcc543e7"
+        ],
+        "members": [
+          "0xabf28f8d9adfb2255f4a059e37d3bce9104969db",
+          "0x00de4b13153673bcae2616b67bf822500d325fc3",
+          "0xdfBecC0b4aEF80b96Da27aB483feb0892472eaC2"
+        ],
+        "strategies": [
+          {
+            "name": "comp-like-votes",
+            "params": {
+              "symbol": "GTC",
+              "address": "0xde30da39c46104798bb5aa3fe8b9e0e1f348163f",
+              "decimals": 18
+            }
+          },
+          {
+            "name": "delegation",
+            "params": {
+              "symbol": "GTC (delegated)",
+              "strategies": [
+                {
+                  "name": "comp-like-votes",
+                  "params": {
+                    "symbol": "GTC",
+                    "address": "0xde30da39c46104798bb5aa3fe8b9e0e1f348163f",
+                    "decimals": 18
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "contract-call",
+            "params": {
+              "args": [
+                "0xDe30da39c46104798bB5aA3fe8B9e0e1F348163F",
+                "%{address}",
+                "0x2AA5d15Eb36E5960d056e8FeA6E7BB3e2a06A351"
+              ],
+              "symbol": "GTC",
+              "address": "0x12E93d7A7D4DA488e512bb753181BCA4498d4c23",
+              "decimals": 18,
+              "methodABI": {
+                "name": "getDelegatedVotesFromNFT",
+                "type": "function",
+                "inputs": [
+                  {
+                    "name": "token",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "delegate",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "hedgeyNFT",
+                    "type": "address",
+                    "internalType": "address"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "lockedBalance",
+                    "type": "uint256",
+                    "internalType": "uint256"
+                  }
+                ],
+                "stateMutability": "view"
+              }
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 1000,
+          "onlyMembers": false
+        },
+        "plugins": {
+          "oSnap": {}
+        }
+      },
+      {
+        "id": "honeydao.eth",
+        "name": "Honey DAO",
+        "about": "",
+        "network": "137",
+        "symbol": "HONEY",
+        "admins": [
+          "0xa156DB594f1376b12Bc0Ea756773083d0FD22cF2"
+        ],
+        "members": [],
+        "strategies": [
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "HONEY",
+              "address": "0x64247f3b03e2d84f42a1a783a2ef00905f60a96f",
+              "decimals": 18
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 1,
+          "onlyMembers": false
+        },
+        "plugins": {}
+      },
+      {
+        "id": "decrypt-media.eth",
+        "name": "Decrypt Media",
+        "about": "A media company for the Web3 age",
+        "network": "1",
+        "symbol": "GG",
+        "admins": [
+          "0x0b04f5ac7d416494bbd876e652c02091827404b2",
+          "0xc26a38066829f3d2ea14114b96131c41ca23b648",
+          "0x81f855ab8eb2e7826d7de629dee1021d3e14ed8c",
+          "0xd8cf935ad81a9758444663f3290eaa1b383c9bbc"
+        ],
+        "members": [
+          "0x9fd9917649244d9b0c17245b13db82e035df3942",
+          "0x829bded403443c6594330be9038b5f5d2d1d884a",
+          "0x3e4f69cafe7525aa69b61ad22a3abd30cb914f81",
+          "0xb08a85d277abd882c6dce9349523ddd08e34b751",
+          "0x675c56e663fdf108ae5412e496d0ba3651052401"
+        ],
+        "strategies": [
+          {
+            "name": "erc721",
+            "params": {
+              "symbol": "GG",
+              "address": "0x56ab3e3FBf8a08BD1329E4fBfA1ef8e1818cd158"
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 0,
+          "onlyMembers": true
+        },
+        "plugins": {
+          "poap": {}
+        }
+      },
+      {
+        "id": "uniswapgovernance.eth",
+        "name": "Uniswap",
+        "about": "Only delegated UNI may be used to vote on proposals. You can delegate to yourself or another address here: https://app.uniswap.org/#/vote",
+        "network": "1",
+        "symbol": "UNI",
+        "admins": [
+          "0x0459f41c5f09bf678d9c07331894de31d8c22255"
+        ],
+        "members": [],
+        "strategies": [
+          {
+            "name": "uni",
+            "params": {
+              "symbol": "UNI",
+              "address": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984",
+              "decimals": 18
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 10000,
+          "onlyMembers": false
+        },
+        "plugins": {}
+      },
+      {
+        "id": "fingerprints.eth",
+        "name": "Fingerprints DAO",
+        "about": "The home of blockchain art.",
+        "network": "1",
+        "symbol": "PRINTS/VG",
+        "admins": [],
+        "members": [],
+        "strategies": [
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "PRINTS",
+              "address": "0x4dd28568D05f09b02220b09C2cb307bFd837cb95",
+              "decimals": 18
+            }
+          },
+          {
+            "name": "erc721-with-multiplier",
+            "params": {
+              "symbol": "Voxelglyph",
+              "address": "0xa94161fbe69e08ff5a36dfafa61bdf29dd2fb928",
+              "multiplier": 5000
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 5000,
+          "onlyMembers": false
+        },
+        "plugins": {}
+      },
+      {
+        "id": "banklessvault.eth",
+        "name": "Bankless DAO",
+        "about": "A decentralized community helping the world go bankless",
+        "network": "1",
+        "symbol": "BANK",
+        "admins": [
+          "0x35ea12472d6fb21a9db24b397aa2775d332c14b7",
+          "0xb6ac0341fcf3fb507a8208d34a97f13779e1393d",
+          "0x23db246031fd6f4e81b0814e9c1dc0901a18da2d",
+          "0x1ec1ccef3e1735bda3f4ba698e8a524aa7c93274"
+        ],
+        "members": [
+          "0xcf3efce169acec1b281c05e863f78accf62bd944"
+        ],
+        "strategies": [
+          {
+            "name": "multichain",
+            "params": {
+              "graphs": {
+                "137": "https://api.thegraph.com/subgraphs/name/sameepsi/maticblocks"
+              },
+              "symbol": "BANK",
+              "strategies": [
+                {
+                  "name": "erc20-balance-of",
+                  "params": {
+                    "address": "0x2d94AA3e47d9D5024503Ca8491fcE9A2fB4DA198",
+                    "decimals": 18
+                  },
+                  "network": 1
+                },
+                {
+                  "name": "erc20-balance-of",
+                  "params": {
+                    "address": "0xDB7Cb471dd0b49b29CAB4a1C14d070f27216a0Ab",
+                    "decimals": 18
+                  },
+                  "network": 137
+                },
+                {
+                  "name": "erc20-balance-of",
+                  "params": {
+                    "address": "0x29FAF5905bfF9Cfcc7CF56a5ed91E0f091F8664B",
+                    "decimals": 18
+                  },
+                  "network": 10
+                },
+                {
+                  "name": "balancer",
+                  "params": {
+                    "symbol": "BANK",
+                    "address": "0x2d94AA3e47d9D5024503Ca8491fcE9A2fB4DA198",
+                    "decimals": 18
+                  },
+                  "network": 1
+                },
+                {
+                  "name": "balancer",
+                  "params": {
+                    "symbol": "BANK",
+                    "address": "0xDB7Cb471dd0b49b29CAB4a1C14d070f27216a0Ab",
+                    "decimals": 18
+                  },
+                  "network": 137
+                },
+                {
+                  "name": "staked-balancer",
+                  "params": {
+                    "symbol": "BANK",
+                    "tokenAddress": "0xdb7cb471dd0b49b29cab4a1c14d070f27216a0ab",
+                    "balancerPoolId": "0x5a6ae1fd70d04ba4a279fc219dfabc53825cb01d00020000000000000000020e",
+                    "stakingContract": "0xc48c3a19bc79b9d6ac4391723041584114a4272d"
+                  },
+                  "network": 137
+                },
+                {
+                  "name": "sushiswap",
+                  "params": {
+                    "symbol": "BANK",
+                    "address": "0x2d94AA3e47d9D5024503Ca8491fcE9A2fB4DA198",
+                    "masterchefVersion": "v1",
+                    "useStakedBalances": "true"
+                  },
+                  "network": 1
+                },
+                {
+                  "name": "sushiswap",
+                  "params": {
+                    "symbol": "BANK",
+                    "address": "0xDB7Cb471dd0b49b29CAB4a1C14d070f27216a0Ab",
+                    "masterchefVersion": "v2",
+                    "useStakedBalances": "true"
+                  },
+                  "network": 137
+                },
+                {
+                  "name": "uniswap-v3",
+                  "params": {
+                    "symbol": "BANK",
+                    "poolAddress": "0x1a80afe14143637c0b7609e6e276464e4f748014",
+                    "tokenReserve": 0
+                  },
+                  "network": 1
+                },
+                {
+                  "name": "arrakis-finance",
+                  "params": {
+                    "symbol": "BANK",
+                    "decimals": 18,
+                    "poolAddress": "0x472D0B0DDFE0BC02C27928b8BcbD67E65D07d48a",
+                    "tokenAddress": "0x2d94AA3e47d9D5024503Ca8491fcE9A2fB4DA198"
+                  },
+                  "network": 1
+                },
+                {
+                  "name": "rari-fuse",
+                  "params": {
+                    "token": "0x2d94AA3e47d9D5024503Ca8491fcE9A2fB4DA198",
+                    "fToken": "0x250316B3E46600417654b13bEa68b5f64D61E609",
+                    "symbol": "BANK"
+                  },
+                  "network": 1
+                },
+                {
+                  "name": "contract-call",
+                  "params": {
+                    "symbol": "BANK",
+                    "address": "0xeaEAb9f1B25fa00FC01a3fcE521b47E88527Aa02",
+                    "decimals": 18,
+                    "methodABI": {
+                      "name": "delegatedBalances",
+                      "type": "function",
+                      "inputs": [
+                        {
+                          "name": "delegate",
+                          "type": "address",
+                          "internalType": "address"
+                        }
+                      ],
+                      "outputs": [
+                        {
+                          "name": "delegatedBalance",
+                          "type": "uint256",
+                          "internalType": "uint256"
+                        }
+                      ],
+                      "stateMutability": "view"
+                    }
+                  },
+                  "network": "1"
+                }
+              ],
+              "startBlocks": {
+                "137": 13000000
+              }
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 0,
+          "onlyMembers": true
+        },
+        "plugins": {
+          "poap": {}
+        }
+      },
+      {
+        "id": "ens.eth",
+        "name": "ENS",
+        "about": "",
+        "network": "1",
+        "symbol": "ENS",
+        "admins": [
+          "0xb8c2c29ee19d8307cb7255e1cd9cbde883a267d5",
+          "0xb6e040c9ecaae172a89bd561c5f73e1c48d28cd9",
+          "0x9297a132af2a1481441ab8dc1ce6e243d879eafd"
+        ],
+        "members": [
+          "0x5a384227b65fa093dec03ec34e111db80a040615",
+          "0x866b3c4994e1416b7c738b9818b31dc246b95eee",
+          "0x0904dac3347ea47d208f3fd67402d039a3b99859",
+          "0xd2cc2e47c2aecd01c87b83290c0ee76ba67a7211",
+          "0xe3919f3f971c4589089daa930aafa81b8a27b406",
+          "0x51050ec063d393217b436747617ad1c2285aeeee"
+        ],
+        "strategies": [
+          {
+            "name": "delegation",
+            "params": {
+              "symbol": "ENS (delegated)",
+              "strategies": [
+                {
+                  "name": "erc20-votes",
+                  "params": {
+                    "symbol": "ENS",
+                    "address": "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72",
+                    "decimals": 18
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "erc20-votes",
+            "params": {
+              "symbol": "ENS",
+              "address": "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72",
+              "decimals": 18
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 10000,
+          "onlyMembers": false
+        },
+        "plugins": {}
+      },
+      {
+        "id": "pleasrdao.eth",
+        "name": "PleasrDAO",
+        "about": "a cartel of peeps that aim to pleas",
+        "network": "1",
+        "symbol": "✨",
+        "admins": [
+          "0x9e64b47bbdb9c1f7b599f11987b84c416c0c4110",
+          "0xec6d36a487d85cf562b7b8464ce8dc60637362ac"
+        ],
+        "members": [
+          "0x4a7c6899cdcb379e284fbfd045462e751da4c7ce",
+          "0x09f48f5bb0513e677752b3be16c7b9b3bb70cbe3",
+          "0x99bc02c239025e431d5741cc1dba8ce77fc51ce3",
+          "0x067b9bbbbc42d2ab9b9ab6bb62646daf7f344a76",
+          "0x72ba1965320ab5352fd6d68235cc3c5306a6ffa2"
+        ],
+        "strategies": [
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "PEEPS",
+              "address": "0xba962a81f78837751be8a177378d582f337084e6",
+              "decimals": 18
+            }
+          },
+          {
+            "name": "delegation",
+            "params": {
+              "symbol": "PEEPS (delegated)",
+              "strategies": [
+                {
+                  "name": "erc20-balance-of",
+                  "params": {
+                    "address": "0xba962a81f78837751be8a177378d582f337084e6",
+                    "decimals": 18
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 1,
+          "onlyMembers": false
+        },
+        "plugins": {}
+      },
+      {
+        "id": "poh.eth",
+        "name": "Proof Of Humanity",
+        "about": "",
+        "network": "1",
+        "symbol": "VOTE",
+        "admins": [
+          "0x2A52309eDF998799C4A8b89324CCAd91848c8676",
+          "0xb2a33ae0E07fD2ca8DBdE9545F6ce0b3234dc4e8",
+          "0xfd1Af514B8b2bf00d1999497668BFF26Ccdf4C8a"
+        ],
+        "members": [
+          "0x9d9E26932d012b2Ab21B974fE1552F4025b1e1Cc",
+          "0x2A52309eDF998799C4A8b89324CCAd91848c8676",
+          "0xfd1Af514B8b2bf00d1999497668BFF26Ccdf4C8a",
+          "0x77E851A926297fff2E6BC8FDbB5bB6087a617eC5",
+          "0x3BE28A28B85c36FB74e513898bC11260Ee541AAC",
+          "0xDA35c8e464889bA2Cb91d2E85C608a99D262d5db",
+          "0x521aacB43d89E1b8FFD64d9eF76B0a1074dEdaF8",
+          "0xbeeb01a1E47450479c99b7Eb545D090cDdD78776",
+          "0x7Bd0faFe34a8B64AfAf16166d644CDbB2B950aaB",
+          "0x2B1C66f6d779B6da734d67255be2C54dB2E18977",
+          "0x6Ed3755141cecB387FCB2Ad18b537bc7F2bD524b",
+          "0x31331EC182777B3E3CF127F4709A8AAa8F76E549",
+          "0x31452B884F5269eD21e2BAB44CC6A9d48eAac85f",
+          "0x6E9A88971e957Abb41bAe4E2677caE258F0c1e76",
+          "0xc0e2324817EaefD075aF9f9fAF52FFaef45d0c04",
+          "0x30C7F4F7504D6366916f669cd8E731ED4dF6C702",
+          "0xe724C1D534284f2837F3ab310eF8329BBD7c045E",
+          "0xae55D42e157E35a075BA38De7E871178648D2d30",
+          "0x342f5be7578CA67506a31214D93a99e5504256CC",
+          "0x5886f65425cad457776d7a89a399907c97e608e5",
+          "0x85c2043C36be1b84A789E92c29ee3e918ddF50f4",
+          "0x275203A89ACEEdee0D07aF626830baE536b36eD1",
+          "0xBC5eC594509eD050F4A53eEe85D92aF6d2529b56",
+          "0xcBCA1f03D67472A7bEe257798Fc93c7eC6c5BE77",
+          "0x96925d8E33AE06F6fC9F185F106C6F026d36B352",
+          "0xBfF6800aF73a36a7b1821Cc9f18DB00cA4Aa4b3d",
+          "0xb0CC32190a06f4bA13027E7D6C516217b49E8eb0",
+          "0xe17aE4Ee9f37524d2a25177C8a6C95e51DD85262",
+          "0x6bFadF56F24583A777020F6B6EEb11591D79270c",
+          "0xcdf2bc5eAE545953A840457eCDCd5a5Bd4466f66",
+          "0xb8F6b7dfCA935D1aDB58ab18177F5B72a939Ba70",
+          "0x87EE3c1Fb15eae5b9965493C2020dbd3AdACdAfA",
+          "0xcb68A8138c1e57691574670f435A36dB5eCC8E2a",
+          "0x39Df2B98daDA52248309770B530c2D2ED0908Cd3",
+          "0x670F6eFC8DBA20BBb1BF49bad31845e47216BFF9",
+          "0x6c97785edAf8f949a353fcc1629d48759B12F323",
+          "0xc0086412BA221bd43e69852c9eA38336D6310885",
+          "0x7b694B2a461E58b0673565fB8B1D83E962Ed70f3",
+          "0xf28AB805D6Edee246443AC25E3C4aA4A2B56c586",
+          "0x58805f572924b83b8c224184d2Cf60ad3302DBDF",
+          "0xC17671afEc156398D65ffCBD37ea2B3C12225684",
+          "0xE7f13052Fe2bA7D038dac18De5e730542e3979bC",
+          "0xA72ef9BB82d59464eAA63f461C273f8028b20f5c",
+          "0x504E7620069a0a8354434dED3150ed7E2ECF5153",
+          "0xa697c106f153ba7Fa3801bA2afd6273559c7b105",
+          "0x364144a07f23EF285DF585D3E4239Ca7B1102535",
+          "0xcd3c6214dd023eEA574410FfF03d3c065dc560F3",
+          "0x17a91203A9E9C3519c2F76210497eF7F4BE2352F",
+          "0xE30827AE68533e7a01Fb8369d5219f18D5f70e87",
+          "0x6D8b0d39053cC84F072E39eF2Aa353Ceef26c295",
+          "0xC97C5931C53223B434b64B44d03f4d5B404126b1",
+          "0x8BF7Cd4aE85F765a06006802e21bbCC968f45421",
+          "0x14f284988198bBD305C44b7BEA8748323fBB8419",
+          "0x0827ED3a46c9793005e4D68E838DE577Cd8DD752",
+          "0xb3ca2de6af06BF736c609F3e4dD1307570a37732",
+          "0x5CfA0c362DADEa86478d05767ed800dd1B026749",
+          "0x26D06ec9a2dd19cb33398a58f75d9Aa61dda11cD",
+          "0x6986E8C8Da33753443959690c240B03931Bd1Edc",
+          "0x61E067aF897a0a9130e5Fbb9bF089223FCa10820",
+          "0x6F772F596bB0e9e534Ac99D782eE36578dd15B14",
+          "0x816384B4E6644f3A1Cb683E1CB83409A464532eA",
+          "0x482C96b007EA453cb55A3DC11ceB8830e18F0639",
+          "0x2ad91063e489CC4009DF7feE45C25c8BE684Cf6a",
+          "0x6687c671980E65ebD722b9146Fc61e2471558dd6"
+        ],
+        "strategies": [
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "VOTE",
+              "address": "0x1dAD862095d40d43c2109370121cf087632874dB",
+              "decimals": 0
+            }
+          },
+          {
+            "name": "math",
+            "params": {
+              "symbol": "QDelegates",
+              "operands": [
+                {
+                  "type": "strategy",
+                  "strategy": {
+                    "name": "erc20-balance-of-delegation",
+                    "params": {
+                      "symbol": "VOTE",
+                      "address": "0x1dAD862095d40d43c2109370121cf087632874dB",
+                      "decimals": 0
+                    },
+                    "network": "1"
+                  }
+                }
+              ],
+              "operation": "square-root"
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 0,
+          "onlyMembers": true
+        },
+        "plugins": {
+          "poap": {}
+        }
+      },
+      {
+        "id": "friendswithbenefits.eth",
+        "name": "Friends With Benefits",
+        "about": "",
+        "network": "1",
+        "symbol": "FWB",
+        "admins": [
+          "0x523d643e3d7c455d043ee11b51bc8ec08f6ff474",
+          "0x924c15e11612b0f58968e90f566e52bba41870a0",
+          "0x473e95ac3646d286651adf5fa736368dfdcf9605"
+        ],
+        "members": [],
+        "strategies": [
+          {
+            "name": "uniswap",
+            "params": {
+              "symbol": "FWB (UNI-V2)",
+              "address": "0x35bd01fc9d6d5d81ca9e055db88dc49aa2c699a8",
+              "decimals": 18
+            }
+          },
+          {
+            "name": "delegation",
+            "params": {
+              "symbol": "FWB (delegated)",
+              "strategies": [
+                {
+                  "name": "erc20-balance-of",
+                  "params": {
+                    "address": "0x35bd01fc9d6d5d81ca9e055db88dc49aa2c699a8",
+                    "decimals": 18
+                  }
+                },
+                {
+                  "name": "uniswap",
+                  "params": {
+                    "address": "0x35bd01fc9d6d5d81ca9e055db88dc49aa2c699a8",
+                    "decimals": 18
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "FWB",
+              "address": "0x35bd01fc9d6d5d81ca9e055db88dc49aa2c699a8",
+              "decimals": 18
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 75,
+          "onlyMembers": true
+        },
+        "plugins": {
+          "poap": {}
+        }
+      },
+      {
+        "id": "thepunkdao-c.eth",
+        "name": "Punk DAO",
+        "about": "Punk DAO is a lot of things, but above all, we are the home of Punk holders who want our community to grow and prosper.",
+        "network": "1",
+        "symbol": "PUNKDC",
+        "admins": [],
+        "members": [
+          "0x36d125eb648ae70130654530b78eda3144b4ba4b"
+        ],
+        "strategies": [
+          {
+            "name": "delegation",
+            "params": {
+              "symbol": "Delegated",
+              "strategies": [
+                {
+                  "name": "erc721",
+                  "params": {
+                    "address": "0xc7011449db9e4f679b90a84eb7eeae5e59706d27"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "erc721",
+            "params": {
+              "symbol": "PUNKDC",
+              "address": "0xc7011449db9e4f679b90a84eb7eeae5e59706d27"
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 0,
+          "onlyMembers": true
+        },
+        "plugins": {}
+      },
+      {
+        "id": "arbitrumfoundation.eth",
+        "name": "Arbitrum DAO",
+        "about": "The official snapshot space for the Arbitrum DAO",
+        "network": "42161",
+        "symbol": "ARB",
+        "admins": [],
+        "members": [],
+        "strategies": [
+          {
+            "name": "erc20-votes",
+            "params": {
+              "symbol": "ARB",
+              "address": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+              "decimals": 18
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 0,
+          "onlyMembers": false
+        },
+        "plugins": {
+          "oSnap": {}
+        }
+      },
+      {
+        "id": "0xbuidlerdao.eth",
+        "name": "BuidlerDAO",
+        "about": "BuidlerDAO 发起于2022 年 5 月，聚集了 Web3 开发者、研究员和运营者等实干家，以 DAO 的方式组织内容输出和产品实践，探索 Social DAO 的治理范式、提供治理工具解决方案；搭建深度的人才和项目网络，共同推进 Web3 大规模应用和生态繁荣。",
+        "network": "137",
+        "symbol": "BRP+pBRP",
+        "admins": [
+          "0x858540e5b13d26523f90b7f2ff1ccf5484954bf0"
+        ],
+        "members": [
+          "0xa6822638554a87e7fe6e64dd5e52ae3cd4018014",
+          "0x466a58A7CaFE8C8c3cfBB9c140Adf7b304651e4d",
+          "0x31709b5e376cfd5a174e10c49a4d38cf6e1bcf53",
+          "0xac85db17b614c94332b494ee8329c308f395a053",
+          "0xb9f8a98916c14036aeeda49d9c281e25011f48a3"
+        ],
+        "strategies": [
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "BRP",
+              "address": "0xD478679373cc5392c4e79eeE8e86006DCde92487",
+              "decimals": 4
+            }
+          },
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "pBRP",
+              "address": "0xA38B46759E84D8499600e93971de423D1A4541Cc",
+              "decimals": 18
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 0,
+          "onlyMembers": true
+        },
+        "plugins": {}
+      },
+      {
+        "id": "givestation.eth",
+        "name": "GiveStation",
+        "about": "A multi-chain Give2Earn grant protocol where contributors get rewarded for funding ideas, startups and projects in web3.",
+        "network": "10",
+        "symbol": "GIVnaut NFT",
+        "admins": [
+          "0x79e674ABebD4c1E3aC13f6959Ea0e2B076411e30"
+        ],
+        "members": [
+          "0xA0DcC303273e3655c84D112747Cb93E55F7b5392",
+          "0x79e674ABebD4c1E3aC13f6959Ea0e2B076411e30"
+        ],
+        "strategies": [
+          {
+            "name": "erc721",
+            "params": {
+              "symbol": "GIVnaut NFT",
+              "address": "0xDf33Ae70b6ec9dd3873D5f221C8786b0c1597ce8"
+            }
+          },
+          {
+            "name": "erc721",
+            "params": {
+              "symbol": "GIVnaut NFT",
+              "address": "0x0244F5c52bdA3fD44fC5c2a6bF6c30A2aC1Bd019"
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 0,
+          "onlyMembers": true
+        },
+        "plugins": {}
+      },
+      {
+        "id": "tigervc-dao.eth",
+        "name": "Tiger VC DAO",
+        "about": "A Decentralized Venture Capital Powered by Web 3.0",
+        "network": "1",
+        "symbol": "Tiger",
+        "admins": [
+          "0x1De3b6bD70060118e778732a37f3b3583DfC5F7c",
+          "0x22272E7B2849b198597f8A2e7906fC135B8EA409",
+          "0x3Bf0DB430221a4f4820fCC79dbAc72341aa2f325"
+        ],
+        "members": [
+          "0xBd48A9972230a16b1D43aC316592B14F0660fc48",
+          "0xCf5df73D92A953B9D5c305C69862988067a43F2A",
+          "0xf07dEeb70080458e580bE9a3678752E614f82406"
+        ],
+        "strategies": [
+          {
+            "name": "erc721",
+            "params": {
+              "symbol": "Tiger",
+              "address": "0x3F21E2d45a446739A57aFcDAaF8F7aC2b78235f3"
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 1,
+          "onlyMembers": false
+        },
+        "plugins": {}
+      },
+      {
+        "id": "opcollective.eth",
+        "name": "Optimism Collective",
+        "about": "VOTING HERE -> https://vote.optimism.io/",
+        "network": "10",
+        "symbol": "OP",
+        "admins": [
+          "0x7FcF5E8a8d7131399091aBCC81c1F289D7393D45",
+          "0x47C88bb92B409fF25F6587EA611fac4e55f76007",
+          "0x83E54889754e737Fb3CdF07BAaCC0eB9699B6Bdd"
+        ],
+        "members": [
+          "0x47C88bb92B409fF25F6587EA611fac4e55f76007",
+          "0x83E54889754e737Fb3CdF07BAaCC0eB9699B6Bdd",
+          "0xE4553b743E74dA3424Ac51f8C1E586fd43aE226F"
+        ],
+        "strategies": [
+          {
+            "name": "erc20-votes",
+            "params": {
+              "name": "OP",
+              "symbol": "OP",
+              "address": "0x4200000000000000000000000000000000000042"
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 0,
+          "onlyMembers": true
+        },
+        "plugins": {}
+      },
+      {
+        "id": "rugcommunity.eth",
+        "name": "RugDAO",
+        "about": "",
+        "network": "1",
+        "symbol": "RDAO",
+        "admins": [
+          "0x8b098d161cc912a573cbbafca7cd2ab4027e3384",
+          "0x38faca2fb4fd4710983423ed888f81740a6b35a7",
+          "0xc5f59709974262c4afacc5386287820bdbc7eb3a",
+          "0x848172585cf38aad29c6b8244dbdd604af4cf05d"
+        ],
+        "members": [
+          "0xf1637adedeb89559c70481c3cb4f74ebac80d829",
+          "0x47a063d87f988875ab1ded90318bfa497cffc13d"
+        ],
+        "strategies": [
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "RDAO",
+              "address": "0x6235CAEea7C515DaC14060Ec23a760090655F21b",
+              "decimals": 18
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 0,
+          "onlyMembers": true
+        },
+        "plugins": {
+          "poap": {}
+        }
+      },
+      {
+        "id": "layer2dao.org",
+        "name": "Layer2DAO",
+        "about": "Layer2DAO is expanding the Ethereum L2 ecosystem and investing in high impact L2 ecosystem projects.",
+        "network": "42161",
+        "symbol": "xL2DAO",
+        "admins": [
+          "0xfd0bd19e849493f77d8f77ed026520c1368102bd",
+          "0x062a07cbf4848fda67292a96a5e02c97e402233f",
+          "0xe7a2d53da40ba37495d4cf84811a59aace2f04a5"
+        ],
+        "members": [],
+        "strategies": [
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "xL2DAO",
+              "address": "0xA7AF63b5154eB5d6Fb50a6d70d5C229e5f030AB2",
+              "decimals": 18
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 0,
+          "onlyMembers": true
+        },
+        "plugins": {
+          "safeSnap": {
+            "safes": [
+              {
+                "network": "42161",
+                "umaAddress": "0x29D21E60f839243488A1CE0c42126d65F5807F39",
+                "realityAddress": "0xSWITCH_WITH_REALITY_MODULE_ADDRESS"
+              },
+              {
+                "network": "10",
+                "umaAddress": "0xB57c9CB8163cDf88591995633DC1C3E61CB38530",
+                "realityAddress": "0xSWITCH_WITH_REALITY_MODULE_ADDRESS"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "assangedao.eth",
+        "name": "AssangeDAO",
+        "about": "AssangeDAO is a collective of cypherpunks fighting for the liberation of Julian Assange.",
+        "network": "1",
+        "symbol": "JUSTICE",
+        "admins": [
+          "0x7BE99ca4E6893ef57cf349ab56307628100feA00"
+        ],
+        "members": [
+          "0x2f0959C4fA0e168c7D184FE2543919EB1C39EC8B",
+          "0xC22C362DE96EBe900260cE4ADf23493b8875bF5c",
+          "0xB62D7052F3E0Deb75a2d91A3526cA0A5934537df",
+          "0x0BF72198CA3c215fD2F7bc041824dF97CBb7aDF5",
+          "0x2168284Dc81f39B1869575DeB68a1716Cf9F4657",
+          "0x00c07cb8991381d11553e6e6372e3bb4d8919976",
+          "0xC42d7E776cB079C3C3b205BD307D0CdbB2431Dd3",
+          "0xb0A15FA284aa926F9AD707335E0a90dBe08F93a2",
+          "0x1A35fDBd975cF764c043D0F737CD86F4d9FEB160",
+          "0x7BE99ca4E6893ef57cf349ab56307628100feA00",
+          "0x9234dA5B588A8FE47DfEb9a7852d49399CfB5a94"
+        ],
+        "strategies": [
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "JUSTICE",
+              "address": "0x59d1e836F7b7210A978b25a855085cc46fd090B5",
+              "decimals": 18
+            }
+          },
+          {
+            "name": "erc20-balance-of-delegation",
+            "params": {
+              "symbol": "JUSTICE",
+              "address": "0x59d1e836f7b7210a978b25a855085cc46fd090b5",
+              "decimals": 18,
+              "delegationSpace": "Assangedao.eth"
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 0,
+          "onlyMembers": true
+        },
+        "plugins": {}
+      },
+      {
+        "id": "tomoondao.eth",
+        "name": "MoonDAO",
+        "about": "We're going to the moon (literally)",
+        "network": "1",
+        "symbol": "vMOONEY",
+        "admins": [
+          "0x679d87d8640e66778c3419d164998e720d7495f6",
+          "0x3c48621a501567463768ae79e6547091418e24ee"
+        ],
+        "members": [
+          "0x5640ddc028f2436b5c0ba0305d2199556c1b5a95",
+          "0x886002b1f355344fefd7df5f9e566e9402c2cf8c",
+          "0x50e70c43a5dd812e2309eacea61348041011b4ba"
+        ],
+        "strategies": [
+          {
+            "name": "math",
+            "params": {
+              "symbol": "vMOONEY",
+              "operands": [
+                {
+                  "type": "strategy",
+                  "strategy": {
+                    "name": "erc20-balance-of",
+                    "params": {
+                      "symbol": "vMOONEY",
+                      "address": "0xCc71C80d803381FD6Ee984FAff408f8501DB1740",
+                      "decimals": 18
+                    },
+                    "network": "1"
+                  }
+                }
+              ],
+              "operation": "square-root"
+            }
+          },
+          {
+            "name": "math",
+            "params": {
+              "symbol": "vMOONEY",
+              "operands": [
+                {
+                  "type": "strategy",
+                  "strategy": {
+                    "name": "erc20-balance-of",
+                    "params": {
+                      "symbol": "vMOONEY",
+                      "address": "0xe2d1BFef0A642B717d294711356b468ccE68BEa6",
+                      "decimals": 18
+                    },
+                    "network": "137"
+                  }
+                }
+              ],
+              "operation": "square-root"
+            }
+          },
+          {
+            "name": "math",
+            "params": {
+              "symbol": "vMOONEY",
+              "operands": [
+                {
+                  "type": "strategy",
+                  "strategy": {
+                    "name": "erc20-balance-of",
+                    "params": {
+                      "symbol": "vMOONEY",
+                      "address": "0xB255c74F8576f18357cE6184DA033c6d93C71899",
+                      "decimals": 18
+                    },
+                    "network": "42161"
+                  }
+                }
+              ],
+              "operation": "square-root"
+            }
+          },
+          {
+            "name": "math",
+            "params": {
+              "symbol": "vMOONEY",
+              "operands": [
+                {
+                  "type": "strategy",
+                  "strategy": {
+                    "name": "delegation",
+                    "params": {
+                      "symbol": "vMOONEY (delegated)",
+                      "strategies": [
+                        {
+                          "name": "erc20-balance-of",
+                          "params": {
+                            "symbol": "vMOONEY",
+                            "address": "0xe2d1BFef0A642B717d294711356b468ccE68BEa6",
+                            "decimals": 18
+                          },
+                          "network": "137"
+                        }
+                      ],
+                      "delegationSpace": "tomoondao.eth"
+                    },
+                    "network": "137"
+                  }
+                }
+              ],
+              "operation": "square-root"
+            }
+          },
+          {
+            "name": "math",
+            "params": {
+              "symbol": "vMOONEY",
+              "operands": [
+                {
+                  "type": "strategy",
+                  "strategy": {
+                    "name": "delegation",
+                    "params": {
+                      "symbol": "vMOONEY (delegated)",
+                      "strategies": [
+                        {
+                          "name": "erc20-balance-of",
+                          "params": {
+                            "symbol": "vMOONEY",
+                            "address": "0xCc71C80d803381FD6Ee984FAff408f8501DB1740",
+                            "decimals": 18
+                          },
+                          "network": "1"
+                        }
+                      ],
+                      "delegationSpace": "tomoondao.eth"
+                    },
+                    "network": "1"
+                  }
+                }
+              ],
+              "operation": "square-root"
+            }
+          },
+          {
+            "name": "math",
+            "params": {
+              "symbol": "vMOONEY",
+              "operands": [
+                {
+                  "type": "strategy",
+                  "strategy": {
+                    "name": "delegation",
+                    "params": {
+                      "symbol": "vMOONEY (delegated)",
+                      "strategies": [
+                        {
+                          "name": "erc20-balance-of",
+                          "params": {
+                            "symbol": "vMOONEY",
+                            "address": "0xB255c74F8576f18357cE6184DA033c6d93C71899",
+                            "decimals": 18
+                          },
+                          "network": "42161"
+                        }
+                      ],
+                      "delegationSpace": "tomoondao.eth"
+                    },
+                    "network": "42161"
+                  }
+                }
+              ],
+              "operation": "square-root"
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 0,
+          "onlyMembers": true
+        },
+        "plugins": {}
+      },
+      {
+        "id": "giv.eth",
+        "name": "Giveth",
+        "about": "Welcome to GIVernance!\nFind important proposals affecting the Giveth DAO and GIVeconomy. Stake & Lock your GIV tokens to vote! https://giveth.io/givfarm",
+        "network": "1",
+        "symbol": "GIVPOWER",
+        "admins": [
+          "0x839395e20bbb182fa440d08f850e6c7a8f6f0780",
+          "0x960a16c9070a9bbbb03e1bfd418982636d56d77d",
+          "0x826976d7c600d45fb8287ca1d7c76fc8eb732030"
+        ],
+        "members": [
+          "0x00d18ca9782be1caef611017c2fbc1a39779a57c",
+          "0xf23ea0b5f14afcbe532a1df273f7b233ebe41c78",
+          "0xa4d506434445bb7303ea34a07bc38484cdc64a95"
+        ],
+        "strategies": [
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "OP-GIVPOWER",
+              "address": "0x301C739CF6bfb6B47A74878BdEB13f92F13Ae5E7",
+              "decimals": 18
+            }
+          },
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "GNO-GIVPOWER",
+              "address": "0xD93d3bDBa18ebcB3317a57119ea44ed2Cf41C2F2",
+              "decimals": 18
+            }
+          },
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "PZK-GIVPOWER",
+              "address": "0xc790f82bF6F8709aa4A56dc11afaD7aF7C2a9867",
+              "decimals": 18
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 0,
+          "onlyMembers": false
+        },
+        "plugins": {}
+      },
+      {
+        "id": "vote.vitadao.eth",
+        "name": "VitaDAO",
+        "about": "We are collectively researching, financing, and commercializing longevity research in an open and democratic manner.",
+        "network": "1",
+        "symbol": "VITA",
+        "admins": [
+          "0x082527433a8c1f260d37c57d4bac904611ef8e7a",
+          "0xe2fbdf7fe1d77f8b73e9fa4d17f2f1fc64f7313f",
+          "0xe6fec9c8b089aa30c8ed32072cff2f8f76099c77",
+          "0xaf6d67eb6a07cd7f3d2d690499841042fecd137b",
+          "0x3032e0b0cd050310e75d4c1e83c3b1dff4c705a7"
+        ],
+        "members": [
+          "0x2b5cdfb0451c3a0fd1d5b7b1d9aeeada4c6d1c27",
+          "0x45602bfba960277bf917c1b2007d1f03d7bd29e4",
+          "0x6c1e0c4221ec9d36cf80cd2b9b6b9b2823e4cb69",
+          "0xfb9b22a0e3a05e4f6b49add981a189301f411a75",
+          "0x208efde0a5ed5cae7adce05e850bb7b1c67573c1",
+          "0xc05ded6ab80bd29f2bcf8c2eaffbd9fd22213acc",
+          "0xad1e69afd29b553919ace16043ab5dad1912dbb8",
+          "0x5c0e78ff0e1a554ce6789e209bea10bea99f1435"
+        ],
+        "strategies": [
+          {
+            "name": "with-delegation",
+            "params": {
+              "symbol": "VITA",
+              "strategies": [
+                {
+                  "name": "erc20-balance-of",
+                  "params": {
+                    "address": "0x81f8f0bb1cB2A06649E51913A151F0E7Ef6FA321",
+                    "decimals": 18
+                  }
+                },
+                {
+                  "name": "uniswap-v3",
+                  "params": {
+                    "symbol": "VITA/ETH (Uniswap v3)",
+                    "poolAddress": "0xcbcc3cbad991ec59204be2963b4a87951e4d292b",
+                    "tokenReserve": 0
+                  }
+                },
+                {
+                  "name": "uniswap-v3",
+                  "params": {
+                    "symbol": "VITA/USDC (Uniswap v3)",
+                    "poolAddress": "0x9c73935fb72a606b14c03b9a10abb7f2f66b55b5",
+                    "tokenReserve": 0
+                  }
+                },
+                {
+                  "name": "balancer",
+                  "params": {
+                    "symbol": "VITA Balancer Pools",
+                    "address": "0x81f8f0bb1cB2A06649E51913A151F0E7Ef6FA321",
+                    "decimals": 18
+                  }
+                }
+              ],
+              "delegationSpace": "vote.vitadao.eth"
+            }
+          },
+          {
+            "name": "with-delegation",
+            "params": {
+              "symbol": "VITA (on Gnosis)",
+              "strategies": [
+                {
+                  "name": "erc20-balance-of",
+                  "params": {
+                    "address": "0x0939a7c3f8D37C1ce67fAda4963aE7E0bd112ff3",
+                    "decimals": 18
+                  }
+                }
+              ],
+              "delegationSpace": "vote.vitadao.eth"
+            }
+          },
+          {
+            "name": "with-delegation",
+            "params": {
+              "symbol": "VITA (Arbitrum)",
+              "strategies": [
+                {
+                  "name": "erc20-balance-of",
+                  "params": {
+                    "address": "0x65EaaF173F4E18455D7b55CB92AC771826779038",
+                    "decimals": 18
+                  }
+                }
+              ],
+              "delegationSpace": "vote.vitadao.eth"
+            }
+          },
+          {
+            "name": "with-delegation",
+            "params": {
+              "symbol": "VITA (Optimism)",
+              "strategies": [
+                {
+                  "name": "erc20-balance-of",
+                  "params": {
+                    "address": "0x7d14206c937e70e19e3a5b94011faf0d5b3928e2",
+                    "decimals": 18
+                  }
+                }
+              ],
+              "delegationSpace": "vote.vitadao.eth"
+            }
+          },
+          {
+            "name": "with-delegation",
+            "params": {
+              "symbol": "vVITA",
+              "strategies": [
+                {
+                  "name": "erc20-balance-of",
+                  "params": {
+                    "address": "0x7c36c64DA1c3a2065074caa9C48e7648FB733aAB",
+                    "decimals": 18
+                  }
+                }
+              ],
+              "delegationSpace": "vote.vitadao.eth"
+            }
+          },
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "VITA (Base)",
+              "address": "0x490a4b510d0ea9f835d2df29eb73b4fca5071937",
+              "decimals": 18
+            }
+          },
+          {
+            "name": "sablier-v2",
+            "params": {
+              "policy": "reserved-recipient",
+              "symbol": "VITA",
+              "address": "0x81f8f0bb1cB2A06649E51913A151F0E7Ef6FA321",
+              "decimals": 18
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 0,
+          "onlyMembers": true
+        },
+        "plugins": {
+          "hal": {},
+          "poap": {}
+        }
+      },
+      {
+        "id": "biggreendao.eth",
+        "name": "Big Green DAO",
+        "about": "",
+        "network": "137",
+        "symbol": "GARDEN",
+        "admins": [
+          "0x7D4EFd9b4fFECA3e1Db5178f13CeA1eaF69D86d2",
+          "0x79ff52AA5A1FEa27758Aa71C742A10a1d8C4e85e",
+          "0xF04E44CA7e4646146aff59599Ca1356eFa81BC20",
+          "0x9e704170d59c7a99e9577f51c1a950c7f4c59eb3"
+        ],
+        "members": [
+          "0xBC8ef62794CE4a02dd9151cc0B619c13a2b06015",
+          "0xE9666Eb6Fc20CaD5bD3277aF3FD085affC60D9c0",
+          "0x8f79c64346bfD57C1085BdAE82bd1aDe77AB8848",
+          "0x24Aac4BE1481E41c137e0D46A88f8bc551d82f77",
+          "0xcB2CA0432854aF64eE7DAB05374c430DCA987674",
+          "0xF7212b76F560Ff006254B79F8e6677AA282C055f"
+        ],
+        "strategies": [
+          {
+            "name": "erc721",
+            "params": {
+              "symbol": "GARDEN",
+              "address": "0x612449D5977321805f96F5fEa12c029209e86e34"
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 0,
+          "onlyMembers": false
+        },
+        "plugins": {}
+      },
+      {
+        "id": "dunjia.eth",
+        "name": "ConstitutionDAO",
+        "about": "",
+        "network": "1",
+        "symbol": "PEOPLE",
+        "admins": [
+          "0x682c72e317Cf93A36Ace26d52f9eB9c41712e56C"
+        ],
+        "members": [
+          "0x682c72e317Cf93A36Ace26d52f9eB9c41712e56C"
+        ],
+        "strategies": [
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "PEOPLE",
+              "address": "0x7A58c0Be72BE218B41C608b7Fe7C5bB630736C71",
+              "decimals": 18
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 100000,
+          "onlyMembers": false
+        },
+        "plugins": {}
+      },
+      {
+        "id": "dunedao.eth",
+        "name": "Spice DAO",
+        "about": "http://spicedao.xyz",
+        "network": "1",
+        "symbol": "SPICE",
+        "admins": [
+          "0xe525B178F1BC9c8907AFae4868F0AA74418Fa34e",
+          "0x7d4c4d5380ca2f9c7a091bb622b80613da7eae8c",
+          "0x025Ba795C68f2D1b04366db82Ae9e992dA8179c4"
+        ],
+        "members": [
+          "0x025Ba795C68f2D1b04366db82Ae9e992dA8179c4"
+        ],
+        "strategies": [
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "SPICE",
+              "address": "0x9b6dB7597a74602a5A806E33408e7E2DAFa58193",
+              "decimals": 18
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 1,
+          "onlyMembers": true
+        },
+        "plugins": {}
+      },
+      {
+        "id": "klimadao.eth",
+        "name": "Klima DAO",
+        "about": "",
+        "network": "8453",
+        "symbol": "KLIMA",
+        "admins": [
+          "0x693ad12dba5f6e07de86faa21098b691f60a1bea",
+          "0xc67d3de61063bcda92449c9d258baec8ff611dab",
+          "0x50f7c016141598cd27236e1f4efdfbc5dacade91"
+        ],
+        "members": [],
+        "strategies": [
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "KLIMA",
+              "address": "0x4e78011ce80ee02d2c3e649fb657e45898257815",
+              "decimals": 9
+            }
+          },
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "sKLIMA",
+              "address": "0xb0C22d8D350C67420f06F48936654f567C73E8C8",
+              "decimals": 9
+            }
+          },
+          {
+            "name": "erc20-balance-of-indexed",
+            "params": {
+              "symbol": "wsKLIMA",
+              "address": "0x6f370dba99E32A3cAD959b341120DB3C9E280bA6",
+              "decimals": 18,
+              "indexAddress": "0x25d28a24Ceb6F81015bB0b2007D795ACAc411b4d",
+              "indexDecimals": 9
+            }
+          },
+          {
+            "name": "math",
+            "params": {
+              "name": "math",
+              "symbol": "CO2-COMPOUND",
+              "operands": [
+                {
+                  "type": "strategy",
+                  "strategy": {
+                    "name": "contract-call",
+                    "params": {
+                      "symbol": "KLIMAxSVN-CO2C",
+                      "address": "0x08e253270240509E57B9543c0453F0bAc839d0a1",
+                      "decimals": 0,
+                      "methodABI": {
+                        "name": "balanceOf",
+                        "type": "function",
+                        "inputs": [
+                          {
+                            "name": "owner",
+                            "type": "address",
+                            "internalType": "address"
+                          }
+                        ],
+                        "outputs": [
+                          {
+                            "name": "",
+                            "type": "uint256",
+                            "internalType": "uint256"
+                          }
+                        ],
+                        "payable": false,
+                        "stateMutability": "view"
+                      }
+                    },
+                    "network": "137"
+                  }
+                },
+                {
+                  "type": "strategy",
+                  "strategy": {
+                    "name": "contract-call",
+                    "params": {
+                      "args": [
+                        "0x08e253270240509E57B9543c0453F0bAc839d0a1"
+                      ],
+                      "symbol": "sKLIMA-CO2C",
+                      "address": "0xb0C22d8D350C67420f06F48936654f567C73E8C8",
+                      "decimals": 9,
+                      "methodABI": {
+                        "name": "balanceOf",
+                        "type": "function",
+                        "inputs": [
+                          {
+                            "name": "account",
+                            "type": "address",
+                            "internalType": "address"
+                          }
+                        ],
+                        "outputs": [
+                          {
+                            "name": "",
+                            "type": "uint256",
+                            "internalType": "uint256"
+                          }
+                        ],
+                        "payable": false,
+                        "stateMutability": "view"
+                      }
+                    },
+                    "network": "137"
+                  }
+                }
+              ],
+              "operation": "multiply"
+            }
+          },
+          {
+            "name": "math",
+            "params": {
+              "name": "C3-wsKLIMA",
+              "symbol": "C3-wsKLIMA",
+              "operands": [
+                {
+                  "type": "strategy",
+                  "strategy": {
+                    "name": "contract-call",
+                    "params": {
+                      "args": [
+                        "%{address}"
+                      ],
+                      "symbol": "wsKLIMA-C3",
+                      "address": "0xe02efadA566Af74c92b6659d03BAaCb4c06Cc856",
+                      "decimals": 18,
+                      "methodABI": {
+                        "name": "lockedLiquidityOf",
+                        "type": "function",
+                        "inputs": [
+                          {
+                            "name": "account",
+                            "type": "address",
+                            "internalType": "address"
+                          }
+                        ],
+                        "outputs": [
+                          {
+                            "name": "",
+                            "type": "uint256",
+                            "internalType": "uint256"
+                          }
+                        ],
+                        "payable": false,
+                        "stateMutability": "view"
+                      }
+                    },
+                    "network": "137"
+                  }
+                },
+                {
+                  "type": "strategy",
+                  "strategy": {
+                    "name": "contract-call",
+                    "params": {
+                      "args": [],
+                      "symbol": "index",
+                      "address": "0x25d28a24Ceb6F81015bB0b2007D795ACAc411b4d",
+                      "decimals": 9,
+                      "methodABI": {
+                        "name": "index",
+                        "type": "function",
+                        "inputs": [],
+                        "outputs": [
+                          {
+                            "name": "",
+                            "type": "uint256",
+                            "internalType": "uint256"
+                          }
+                        ],
+                        "payable": false,
+                        "stateMutability": "view"
+                      }
+                    },
+                    "network": "137"
+                  }
+                }
+              ],
+              "operation": "multiply"
+            }
+          },
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "KLIMA",
+              "address": "0xDCEFd8C8fCc492630B943ABcaB3429F12Ea9Fea2",
+              "decimals": 9
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 0,
+          "onlyMembers": true
+        },
+        "plugins": {}
+      },
+      {
+        "id": "devdao.eth",
+        "name": "Developer DAO",
+        "about": "Build web3 with friends 🤝",
+        "network": "1",
+        "symbol": "CODE",
+        "admins": [
+          "0xdd00cc906b93419814443bb913949d503b3df3c4",
+          "0xd35d68fe3f7ae603d984b3b17c9dfe156b973fd5"
+        ],
+        "members": [],
+        "strategies": [
+          {
+            "name": "erc20-balance-of",
+            "params": {
+              "symbol": "CODE",
+              "address": "0xb24cd494faE4C180A89975F1328Eab2a7D5d8f11",
+              "decimals": 18
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 0,
+          "onlyMembers": true
+        },
+        "plugins": {
+          "poap": {},
+          "oSnap": {}
+        }
+      },
+      {
+        "id": "globalcoinresearch.eth",
+        "name": "Global Coin Research",
+        "about": "A research and investment DAO focused on Web3. Join with 100$GCR!",
+        "network": "1",
+        "symbol": "GCR",
+        "admins": [
+          "0xc01B3424b81da02A3aB626a44Cfe67c2eb15d9dA",
+          "0xb0353d0A6690B0De6C50F00A1dd4D3B227fF596b",
+          "0x0d7502bbfac5ef62cdb7e40092758a49ea33b6e9",
+          "0xdb585Db81E091eF1F3f0b28402F91624f68712Af"
+        ],
+        "members": [],
+        "strategies": [
+          {
+            "name": "math",
+            "params": {
+              "symbol": "GCR",
+              "operands": [
+                {
+                  "type": "strategy",
+                  "strategy": {
+                    "name": "multichain",
+                    "params": {
+                      "graphs": {
+                        "1": "https://api.thegraph.com/subgraphs/name/lansehuiyi6/ethereum-blocks",
+                        "137": "https://api.thegraph.com/subgraphs/name/sameepsi/maticblocks"
+                      },
+                      "symbol": "GCR",
+                      "strategies": [
+                        {
+                          "name": "erc20-balance-of",
+                          "params": {
+                            "address": "0x6307b25a665efc992ec1c1bc403c38f3ddd7c661",
+                            "decimals": 4
+                          },
+                          "network": "1"
+                        },
+                        {
+                          "name": "erc20-balance-of",
+                          "params": {
+                            "address": "0xa69d14d6369e414a32a5c7e729b7afbafd285965",
+                            "decimals": 4
+                          },
+                          "network": "137"
+                        }
+                      ]
+                    },
+                    "symbol": "GCR",
+                    "network": "1"
+                  }
+                },
+                {
+                  "type": "constant",
+                  "value": 1
+                },
+                {
+                  "type": "constant",
+                  "value": 1
+                }
+              ],
+              "operation": "a-if-gte-b"
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 700,
+          "onlyMembers": true
+        },
+        "plugins": {
+          "safeSnap": {}
+        }
+      },
+      {
+        "id": "mcv.eth",
+        "name": "MetaCartel Ventures",
+        "about": "",
+        "network": "1",
+        "symbol": "MCV",
+        "admins": [
+          "0xa0dd8e6c5440a424cd19f5ec30f8fa485e814247"
+        ],
+        "members": [],
+        "strategies": [
+          {
+            "name": "moloch-all",
+            "params": {
+              "symbol": "MCV",
+              "address": "0x4570b4faf71e23942b8b9f934b47ccedf7540162",
+              "decimals": 0
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 1,
+          "onlyMembers": false
+        },
+        "plugins": {}
+      },
+      {
+        "id": "bitdao.eth",
+        "name": "Mantle (prev. BitDAO)",
+        "about": "Mass adoption of token-governed technologies - with Mantle Network, an Ethereum rollup, Mantle Treasury and a token holder governed roadmap",
+        "network": "1",
+        "symbol": "MNT",
+        "admins": [
+          "0xa3e71d4603f1e17c57a63bc687f88ea11bded6e1",
+          "0x915dc866e2e5e64f912a5ac1d40e3be4597f172a",
+          "0xcc401649651a98ad9aede0146b89fa567c98bbb3",
+          "0x3dc5fcb0ad5835c6059112e51a75b57dba668eb8",
+          "0x2f44bd2a54ac3fb20cd7783cf94334069641dac9",
+          "0xca264a4adf80d3c390233de135468a914f99b6a5",
+          "0x09734bb3980906bb217305ea6bd34256feeab105"
+        ],
+        "members": [
+          "0xf87095925339f7ffdde266258f62947567de6aeb",
+          "0xb73eaac0215b57b31ca041d9c9700adb7013b556",
+          "0xb07da0dfabae4c6f55e436bcd43e79c4dce6b916",
+          "0x57e4561DE207A7CC5aFaf18C1eEaEE35D18f2ceF"
+        ],
+        "strategies": [
+          {
+            "name": "erc20-votes",
+            "params": {
+              "symbol": "MNT",
+              "address": "0x3c3a81e81dc49A522A592e7622A7E711c06bf354"
+            }
+          },
+          {
+            "name": "api-v2",
+            "params": {
+              "url": "https://api.delegatevote.mantle.xyz/snapshot/v2",
+              "type": "api-post",
+              "symbol": "L2-MNT",
+              "decimals": 18
+            }
+          }
+        ],
+        "filters": {
+          "minScore": 200000,
+          "onlyMembers": true
+        },
+        "plugins": {}
+      }
+    ]
+  }
+}
