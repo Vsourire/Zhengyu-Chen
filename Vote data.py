@@ -68,3 +68,4 @@ for dao in dao_list:
 # Print summary DataFrame
 summary_df = pd.DataFrame(results)
 print(summary_df)
+summary_df.to_csv("dao_summary.csv", index=False)

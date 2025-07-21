@@ -1,0 +1,28 @@
+query {
+  spaces(
+    where: {
+      id_in: [
+        "origingov.eth",
+        "1inch.eth",
+
+      ]
+    }
+  ) {
+    id
+    name
+    about
+    network
+    symbol
+    admins
+    members
+    strategies {
+      name
+      params
+    }
+    filters {
+      minScore
+      onlyMembers
+    }
+    plugins
+  }
+}
