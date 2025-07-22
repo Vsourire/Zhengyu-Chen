@@ -7,7 +7,7 @@ df = pd.read_excel("C:\\Users\\13013\\Desktop\\Dissertation\\Zhengyu-Chen\\DAO S
 
 
 # Set X and y
-X = df[['GovScore', 'CommunityScore', 'DevScore', 'UserGrowthScore',
+X = df[['GovScore', 'CommunityScore', 
         'EcosystemScore', 'Revenue']]
 y = df['Yield']
 
@@ -49,7 +49,6 @@ plt.ylabel('Residuals')
 plt.title('Residual Plot')
 plt.show()
 
-#VIF Test
 from statsmodels.stats.outliers_influence import variance_inflation_factor
 
 vif_data = pd.DataFrame()
