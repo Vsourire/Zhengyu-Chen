@@ -2,7 +2,7 @@ import json
 import pandas as pd
 
 # load the JSON file
-with open('DAO.json', 'r', encoding='utf-8') as f:
+with open('DAO List.json', 'r', encoding='utf-8') as f:
     dao_data = json.load(f)
 
 spaces = dao_data['data']['spaces']
