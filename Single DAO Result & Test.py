@@ -15,7 +15,7 @@ pivot = factor_data.pivot_table(index='Date', columns='Factor', values='FactorRe
 
 # Market return drop duplicates
 market_rf = factor_data[['Date', 'DEFX-MKT_RF']].drop_duplicates(subset='Date').set_index('Date')
-X = pd.concat([market_rf, pivot], axis=1).dropna().drop(columns=['Eco_Treasury', 'Market Cap', 'Revenue', 'Community'])
+X = pd.concat([market_rf, pivot], axis=1).dropna().drop(columns=['Community', 'Market Cap', 'Develop', 'Eco_Treasury', 'Users'])
 X = sm.add_constant(X)
 print("X name:")
 print(X.columns.tolist())
@@ -23,7 +23,8 @@ print("\nX data ex:")
 print(X.head())
 
 # Step 4: y
-y = df['ARB'].dropna()
+y = df['RDNT'].dropna()
+#y = np.log(1 + df['RDNT']).dropna()
 y.index = X.index
 
 # Step 5: Regression
@@ -49,9 +50,23 @@ print(f"\nBreusch-Pagan p-value (Heteroskedasticity): {bp_test[1]:.4f}")
 bg_test = acorr_breusch_godfrey(model, nlags=4)
 print(f"\nBreusch-Godfrey p-value (Autocorrelation): {bg_test[3]:.4f}")
 
-# Step 8: visualization
+# Step 8: Save all results to Excel
+with pd.ExcelWriter("C:\\Users\\13013\\Desktop\\Dissertation\\Zhengyu-Chen\\Single DAO Result\\RDNT results_output.xlsx", engine='openpyxl') as writer:
+    # Regression coefficients
+    model_summary_df = pd.DataFrame({
+        "Coefficient": model.params,
+    })
+    model_summary_df.to_excel(writer, sheet_name='Regression Coefficients')
+
+
+# Step 9: Save residual plot
 plt.figure(figsize=(10, 4))
 sns.histplot(model.resid, bins=20, kde=True)
-plt.title("Residual Distribution")
+plt.title("RDNT Residual Distribution")
+# plt.savefig("C:\\Users\\13013\\Desktop\\Dissertation\\Zhengyu-Chen\\Single DAO Result\RDNT residual_plot.png", dpi=300)
 plt.show()
 
+#residuals = model.resid
+#resid_squared = residuals ** 2
+#bp_model = sm.OLS(resid_squared, X).fit()
+#print(bp_model.summary())
