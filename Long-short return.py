@@ -7,7 +7,7 @@ xls = pd.ExcelFile(file_path)
 # sheet names
 factor_sheets = [
     "Gov", "Users", "Community", "Revenue", 
-    "Eco_Treasury", "Develop", "Market Cap", "DEFX market"
+    "Treasury_MarketCap", "Develop", "DEFX market"
 ]
 
 # load factor data
@@ -63,5 +63,5 @@ def calculate_factor_return(df):
 factor_returns_df = calculate_factor_return(merged)
 
 # === 5. Result ===
-factor_returns_df.sort_values(['Date', 'Factor']).to_excel("factor_returns_output.xlsx", index=False)
+factor_returns_df.sort_values(['Date', 'Factor']).to_excel("factor_returns_output_v1.xlsx", index=False)
 

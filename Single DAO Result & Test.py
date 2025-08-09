@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Step 1: Load Excel factor returns data
-df = pd.read_excel("C:\\Users\\13013\\Desktop\\Dissertation\\Zhengyu-Chen\\factor_returns_output.xlsx")
+df = pd.read_excel("C:\\Users\\13013\\Desktop\\Dissertation\\Zhengyu-Chen\\factor_returns_output_v3.xlsx")
 
 # Step 2: construct x: factor columns
 df['DEFX-MKT_RF'] = df['DEFXReturn'] - df['Rf Return']
@@ -15,7 +15,7 @@ pivot = factor_data.pivot_table(index='Date', columns='Factor', values='FactorRe
 
 # Market return drop duplicates
 market_rf = factor_data[['Date', 'DEFX-MKT_RF']].drop_duplicates(subset='Date').set_index('Date')
-X = pd.concat([market_rf, pivot], axis=1).dropna().drop(columns=['Community', 'Develop', 'Gov', 'Users','Eco_Treasury', 'Revenue', 'Market Cap'])
+X = pd.concat([market_rf, pivot], axis=1).dropna().drop(columns=['Develop','Revenue', 'Users', 'Gov', 'Treasury_MarketCap', 'Community'])
 X = sm.add_constant(X)
 print("X name:")
 print(X.columns.tolist())
@@ -23,8 +23,8 @@ print("\nX data ex:")
 print(X.head())
 
 # Step 4: y
-y = df['GMX'].dropna()
-#y = np.log(1 + df['GMX']).dropna()
+y = df['DYDX'].dropna()
+#y = np.log(1 + df['DYDX']).dropna()
 y.index = X.index
 
 # Step 5: Regression
@@ -51,7 +51,7 @@ bg_test = acorr_breusch_godfrey(model, nlags=4)
 print(f"\nBreusch-Godfrey p-value (Autocorrelation): {bg_test[3]:.4f}")
 
 # Step 8: Save all results to Excel
-with pd.ExcelWriter("C:\\Users\\13013\\Desktop\\Dissertation\\Zhengyu-Chen\\Single DAO Result\\GMX results_output.xlsx", engine='openpyxl') as writer:
+with pd.ExcelWriter("C:\\Users\\13013\\Desktop\\Dissertation\\Zhengyu-Chen\\Single DAO Result\\DYDX results_output.xlsx", engine='openpyxl') as writer:
     # Regression coefficients
     model_summary_df = pd.DataFrame({
         "Coefficient": model.params,
@@ -62,8 +62,8 @@ with pd.ExcelWriter("C:\\Users\\13013\\Desktop\\Dissertation\\Zhengyu-Chen\\Sing
 # Step 9: Save residual plot
 plt.figure(figsize=(10, 4))
 sns.histplot(model.resid, bins=20, kde=True)
-plt.title("GMX Residual Distribution")
-# plt.savefig("C:\\Users\\13013\\Desktop\\Dissertation\\Zhengyu-Chen\\Single DAO Result\GMX residual_plot.png", dpi=300)
+plt.title("DYDX Residual Distribution")
+# plt.savefig("C:\\Users\\13013\\Desktop\\Dissertation\\Zhengyu-Chen\\Single DAO Result\DYDX residual_plot.png", dpi=300)
 plt.show()
 
 #residuals = model.resid

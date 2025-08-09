@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Step 1: Load Excel factor returns data
-df = pd.read_excel("C:\\Users\\13013\\Desktop\\Dissertation\\Zhengyu-Chen\\factor_returns_output.xlsx")
+df = pd.read_excel("C:\\Users\\13013\\Desktop\\Dissertation\\Zhengyu-Chen\\factor_returns_output_v3.xlsx")
 
 # Step 2: construct x: factor columns
 df['DEFX-MKT_RF'] = df['DEFXReturn'] - df['Rf Return']
@@ -17,6 +17,18 @@ pivot = factor_data.pivot_table(index='Date', columns='Factor', values='FactorRe
 market_rf = factor_data[['Date', 'DEFX-MKT_RF']].drop_duplicates(subset='Date').set_index('Date')
 X = pd.concat([market_rf, pivot], axis=1).dropna()
 X = sm.add_constant(X)
+print(X.head())
+
+# Correlation Matrix Analysis
+corr_matrix = X.drop(columns='const').corr()
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+plt.figure(figsize=(10,8))
+sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', center=0)
+plt.title("Factor Correlation Matrix")
+plt.show()
 print("X name:")
 print(X.columns.tolist())
 print("\nX data ex:")
