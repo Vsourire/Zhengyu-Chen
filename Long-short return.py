@@ -1,7 +1,7 @@
 import pandas as pd
 
-# === 1. Load Excel  ===
-file_path = "C:\\Users\\13013\\Desktop\\Dissertation\\Zhengyu-Chen\\datasheet.v3.xlsx"  # 改成你本地文件路径
+# === Load Excel  ===
+file_path = "C:\\Users\\13013\\Desktop\\Dissertation\\Zhengyu-Chen\\datasheet.v3.xlsx"  
 xls = pd.ExcelFile(file_path)
 
 # sheet names
@@ -12,9 +12,9 @@ factor_sheets = [
 
 # load factor data
 factor_data = {sheet: xls.parse(sheet) for sheet in factor_sheets}
-returns = xls.parse("Return")
+returns_daily = xls.parse("ReturnDaily")
 
-# === 2. clean data ===
+# === clean data ===
 factor_long = []
 for name, df in factor_data.items():
     df_long = df.melt(id_vars='Date', var_name='DAO', value_name='Score')
@@ -22,46 +22,62 @@ for name, df in factor_data.items():
     factor_long.append(df_long)
 factor_all = pd.concat(factor_long, ignore_index=True)
 
-returns = returns.rename(columns={"DAO": "Date"})  
-returns_long = returns.melt(id_vars='Date', var_name='DAO', value_name='Return')
+returns = returns_daily.rename(columns={"DAO": "Date"}, inplace=True) 
+returns_long = returns_daily.melt(id_vars='Date', var_name='DAO', value_name='Return')
 
-# === 3. Merge and Score ===
-merged = pd.merge(factor_all, returns_long, on=['Date', 'DAO'], how='inner')
+factor_all['Date'] = pd.to_datetime(factor_all['Date'])
+returns_long['Date'] = pd.to_datetime(returns_long['Date'])
 
-# === 4. HML return ===
-def calculate_factor_return(df):
-    results = []
+# === HML return ===
+all_results = []
 
-    for (date, factor), group in df.groupby(['Date', 'Factor']):
-        group = group.dropna(subset=['Score', 'Return'])
-        if len(group) < 10:
-            continue  
+for factor_name, factor_df in factor_all.groupby('Factor'):
+  
+    for week_date, week_group in factor_df.groupby('Date'):
+     
+        week_group = week_group.dropna(subset=['Score'])
+        if len(week_group) < 10:
+            continue
 
         # Score Rank
-        group_sorted = group.sort_values('Score', ascending=False)
-        n = len(group_sorted)
+        sorted_group = week_group.sort_values('Score', ascending=False)
+        n = len(sorted_group)
         top_n = int(n * 0.3)
         bottom_n = int(n * 0.3)
+        top30_daos = sorted_group.head(top_n)['DAO'].tolist()
+        bottom30_daos = sorted_group.tail(bottom_n)['DAO'].tolist()
 
-        top30 = group_sorted.head(top_n)
-        bottom30 = group_sorted.tail(bottom_n)
+        next_week_date = factor_df[factor_df['Date'] > week_date]['Date'].min()
+        if pd.isna(next_week_date):
+            
+            end_date = returns_long['Date'].max()
+        else:
+            end_date = next_week_date - pd.Timedelta(days=1)
 
-        top_return = top30['Return'].mean()
-        bottom_return = bottom30['Return'].mean()
-        hml = top_return - bottom_return
+        
+        mask = (returns_long['Date'] >= week_date) & (returns_long['Date'] <= end_date)
 
-        results.append({
-            'Date': date,
-            'Factor': factor,
-            'Top30_MeanReturn': top_return,
-            'Bottom30_MeanReturn': bottom_return,
-            'FactorReturn': hml
+        daily_top = returns_long[mask & returns_long['DAO'].isin(top30_daos)]
+        daily_bottom = returns_long[mask & returns_long['DAO'].isin(bottom30_daos)]
+
+        
+        top_daily_mean = daily_top.groupby('Date')['Return'].mean()
+        bottom_daily_mean = daily_bottom.groupby('Date')['Return'].mean()
+
+        
+        factor_daily_return = top_daily_mean - bottom_daily_mean
+
+        
+        temp_df = pd.DataFrame({
+            'Date': factor_daily_return.index,
+            'Factor': factor_name,
+            'Top30_MeanReturn': top_daily_mean.values,
+            'Bottom30_MeanReturn': bottom_daily_mean.values,
+            'FactorReturn': factor_daily_return.values
         })
+        all_results.append(temp_df)
 
-    return pd.DataFrame(results)
 
-factor_returns_df = calculate_factor_return(merged)
-
-# === 5. Result ===
-factor_returns_df.sort_values(['Date', 'Factor']).to_excel("factor_returns_output_v1.xlsx", index=False)
-
+factor_returns_daily_df = pd.concat(all_results, ignore_index=True)
+factor_returns_daily_df.sort_values(['Date', 'Factor'], inplace=True)
+factor_returns_daily_df.to_excel("factor_returns_daily_v1.xlsx", index=False)
